@@ -1,0 +1,38 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'projects/images/unnamed.jpg' %}"/>
+    <title>Dev_Portfolio</title>
+    <link rel="stylesheet" href="{% static 'projects/css/syntax.css' %}">
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-900 text-gray-200 font-mono antialiased selection:bg-green-400 selection:text-black">
+
+    <nav class="border-b border-gray-800 p-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{% url 'home' %}" class="text-xl font-bold text-green-400 hover:text-green-300">
+                ShithijPortfolio
+            </a>
+            <div class="space-x-4 text-sm">
+                <a href="https://github.com/Shithijms" target="_blank" class="hover:text-green-400 hover:underline">GitHub</a>
+                <span class="text-gray-600">|</span>
+                <a href="{% url 'resume' %}" target="_blank" class="hover:text-green-400 hover:underline">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-6 min-h-screen">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="border-t border-gray-800 p-6 text-center text-sm text-gray-600">
+        <p>Built with Django & Tailwind.</p>
+    </footer>
+</body>
+</html>
+
